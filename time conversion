@@ -1,0 +1,50 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+// time conversion
+//https://www.hackerrank.com/challenges/time-conversion
+
+int main()
+{
+  char* time = (char *)malloc(10240 * sizeof(char));
+  scanf("%s",time);
+if(time[0]<'0' || time[0]>'1')
+  {
+    return 0;
+  }
+if(time[0]=='0')
+  {
+    if(time[1]> '9'|| time[1]<'0')
+    return 0;
+  }
+else if(time[0]=='1')
+    {
+      if(time[1]> '2'|| time[1]<'0')
+      return 0;
+    }
+if(time[3]>'5' || time[3]<'0')
+return 0;
+
+if(time[4]>'9' || time[4]<'0')
+return 0;
+
+if(time[6]>'5' || time[6]<'0')
+return 0;
+
+if(time[7]>'9' || time[7]<'0')
+return 0;
+
+if(time[8]=='P')
+{
+time[0]= time[0]+1 ;
+time[1]= time[1]+2 ;
+}
+time[8]='\0';
+puts(time);
+  return 0;
+
+}
