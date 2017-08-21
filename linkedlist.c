@@ -37,7 +37,32 @@ Node *addend() //addition of  node at the end of the linked list
     return start;
 }
 //****************************************************************************
-Node *addbeg()
+Node* addnth(int pos)// for the addition at the nth position
+{
+    Node *tmp,*p,*q;
+    tmp=(Node*)malloc(sizeof(struct node));
+    p=start;
+    printf("enter the data into the node\n");
+    scanf("%d",&tmp->data);
+    int x=pos;
+    if(pos==1)
+    {
+        tmp->next=start;
+        start=tmp;
+        return start;
+    }
+    else
+    {
+        while(x--)
+        p=p->next;
+    tmp->next=p->next;
+    p->next=tmp;
+    }
+return start;
+}
+//****************************************************************************
+
+Node *addbeg()//for the  addition of the node at the begining
 {
     Node *tmp;
     tmp=(Node*)malloc(sizeof(struct node));
@@ -66,17 +91,17 @@ int main()
     int i,choice;
     // printf("enter the no of linked list\n");
     // scanf("%d",&n);
-   
-
-   while(1)
+    
+while(1)
     {
         printf("\n ***enter the option to take the operation***\n");
         printf("\n\t\t\t 1:  add new node at the end\n");
         printf("\n\t\t\t 2:  add new node at the beggining of the linked list\n");
-        printf("\n\t\t\t 3:  display the created linked list\n");
+        printf("\n\t\t\t 3:  add new node at nth position\n");
+        printf("\n\t\t\t 4:  display the created linked list\n");
         printf("\n\t\t\t 0: to exit the operation\n");
         printf("\n\t\t\t***enter the option to be done***\n");
-        scanf("%d",&choice);
+        here: scanf("%d",&choice);
         switch(choice)
         {
             case 1: 
@@ -90,6 +115,12 @@ int main()
                 break;
             }
             case 3:
+            {   int pos;
+                printf("enter the nth position at which the node to be add\n");
+                scanf("%d",&pos);
+                addnth(pos);
+            }
+            case 4:
             {   display();
                 break;
             }
@@ -99,9 +130,10 @@ int main()
                 break;
             }
             default: 
-            
-                printf("\nwrong input entered\n");
-                break;
+            {
+                printf("\nwrong input entered please try again\n");
+                exit(0);
+            }
         }
     }
 return 0;
