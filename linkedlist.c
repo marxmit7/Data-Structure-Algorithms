@@ -36,7 +36,7 @@ Node *addend() //addition of  node at the end of the linked list
     }
     return start;
 }
-//****************************************************************************
+//*************************************************************************
 Node* addnth(int pos)// for the addition at the nth position
 {
     Node *tmp,*p,*q;
@@ -44,8 +44,8 @@ Node* addnth(int pos)// for the addition at the nth position
     p=start;
     printf("enter the data into the node\n");
     scanf("%d",&tmp->data);
-    int x=pos;
-    if(pos==1)
+    int x=pos-1;
+    if(x==0)
     {
         tmp->next=start;
         start=tmp;
@@ -54,9 +54,11 @@ Node* addnth(int pos)// for the addition at the nth position
     else
     {
         while(x--)
-        p=p->next;
-    tmp->next=p->next;
-    p->next=tmp;
+        {   q=p;
+            p=p->next;
+        }
+    tmp->next=p;
+    q->next=tmp;
     }
 return start;
 }
@@ -70,6 +72,43 @@ Node *addbeg()//for the  addition of the node at the begining
     scanf("%d",&tmp->data);
     tmp->next=start;
     start=tmp;
+    return start;
+}
+//****************************************************************************
+Node *delend()
+{
+    Node *p,*q;
+    p=start;
+    while(p->next!=NULL)
+        {
+            q=p; //selection of previous node
+            p=p->next;
+        }
+    q->next=NULL;
+    free(p);
+    return start;
+}
+//****************************************************************************
+Node *delnth(int pos)
+{
+    Node *p,*q;
+    p=start;
+    int x=pos-1;
+    if(pos==1)
+    {
+        start=start->next;
+        free(p);
+    }
+    else
+    {
+        while(x--)
+        {
+            q=p;
+            p=p->next;
+        }
+        q->next=p->next;
+        free(p);
+    }
     return start;
 }
 //****************************************************************************
@@ -98,7 +137,9 @@ while(1)
         printf("\n\t\t\t 1:  add new node at the end\n");
         printf("\n\t\t\t 2:  add new node at the beggining of the linked list\n");
         printf("\n\t\t\t 3:  add new node at nth position\n");
-        printf("\n\t\t\t 4:  display the created linked list\n");
+        printf("\n\t\t\t 4:  delete the last node of the linked list\n");
+        printf("\n\t\t\t 5:  delete the nth node of the linked list\n");
+        printf("\n\t\t\t 9:  display the created linked list\n");
         printf("\n\t\t\t 0: to exit the operation\n");
         printf("\n\t\t\t***enter the option to be done***\n");
         here: scanf("%d",&choice);
@@ -119,8 +160,23 @@ while(1)
                 printf("enter the nth position at which the node to be add\n");
                 scanf("%d",&pos);
                 addnth(pos);
+                break;
             }
             case 4:
+            {
+                delend();
+                printf("last node of the linkedlist has been deleted\n");
+                break;
+            }
+            case 5:
+            { printf("enter the nth position of the node to be deleted\n");
+                int a;
+                scanf("%d",&a);
+                delnth(a);
+                printf("%dth node has been deleted",a);
+                break;
+            }
+            case 9:
             {   display();
                 break;
             }
@@ -132,7 +188,7 @@ while(1)
             default: 
             {
                 printf("\nwrong input entered please try again\n");
-                exit(0);
+            
             }
         }
     }
