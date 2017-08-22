@@ -112,6 +112,19 @@ Node *delnth(int pos)
     return start;
 }
 //****************************************************************************
+Node *circle()
+{
+    Node *p;
+    p=start;
+    while(p->next!=NULL)
+    {
+        p=p->next;
+    }
+    p->next=start;
+return start;
+}
+
+//****************************************************************************
 void display()
 {
     Node *q;
@@ -139,6 +152,7 @@ while(1)
         printf("\n\t\t\t 3:  add new node at nth position\n");
         printf("\n\t\t\t 4:  delete the last node of the linked list\n");
         printf("\n\t\t\t 5:  delete the nth node of the linked list\n");
+        printf("\n\t\t\t 6:  make it a circular linkedlist\n");
         printf("\n\t\t\t 9:  display the created linked list\n");
         printf("\n\t\t\t 0: to exit the operation\n");
         printf("\n\t\t\t***enter the option to be done***\n");
@@ -174,6 +188,12 @@ while(1)
                 scanf("%d",&a);
                 delnth(a);
                 printf("%dth node has been deleted",a);
+                break;
+            }
+            case 6:
+            {
+                circle();
+                printf("now the linked list is circular\n");
                 break;
             }
             case 9:
