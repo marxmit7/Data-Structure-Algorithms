@@ -125,6 +125,24 @@ return start;
 }
 
 //****************************************************************************
+//reversing a linked list 
+Node *Reverse()
+{
+    Node *prev,*current,*next;
+    current=start;
+    prev=NULL;
+    while(current!=NULL)
+    {
+        next=current->next;
+        current->next=prev;
+        prev=current;
+        current=next;
+    }
+    start=prev;
+return start;
+}
+
+//****************************************************************************
 void display()
 {
     Node *q;
@@ -153,6 +171,7 @@ while(1)
         printf("\n\t\t\t 4:  delete the last node of the linked list\n");
         printf("\n\t\t\t 5:  delete the nth node of the linked list\n");
         printf("\n\t\t\t 6:  make it a circular linkedlist\n");
+        printf("\n\t\t\t 7:  reverse the current linkedlist\n");
         printf("\n\t\t\t 9:  display the created linked list\n");
         printf("\n\t\t\t 0: to exit the operation\n");
         printf("\n\t\t\t***enter the option to be done***\n");
@@ -194,6 +213,12 @@ while(1)
             {
                 circle();
                 printf("now the linked list is circular\n");
+                break;
+            }
+            case 7:
+            {
+                Reverse();
+                printf("the linked list has been reversed\n");
                 break;
             }
             case 9:
