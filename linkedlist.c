@@ -148,25 +148,50 @@ Node *swap(int pos1,int pos2)
     Node *pre1,*nex1,*pre2,*nex2,*p,*q;
     p=start;
     int count=1;
-    while(p!=NULL)
-    {
-        if((pos1-1)==count)
+    if(pos1==1)// this is the case when swapping is done except the last node
+    {   
+        pre1=NULL;
+        nex1=start->next;
+        q=start;
+        while(p!=NULL)
         {
-            pre1=p;
-            nex1=p->next->next;
-            q=p->next;
+            if((pos2-1)==count)
+            {
+                pre2=p;
+                nex2=p->next->next;
+            }
+            count++;
+            p=p->next;
         }
-        else if((pos2-1)==count)
-        {   pre2=p;
-            nex2=p->next->next;
-        }
-        count++;
-        p=p->next;
+        start=pre2->next;
+        q->next=nex2;
+        pre2->next=q;
+        start->next=nex1;
+    return start;
+
     }
-    pre1->next=pre2->next;
-    pre2->next->next=nex1;
-    pre2->next=q;
-    q->next=nex2;
+    else
+    {
+        while(p!=NULL)
+        {
+            if((pos1-1)==count)
+            {
+                pre1=p;
+                nex1=p->next->next;
+                q=p->next;
+            }
+            else if((pos2-1)==count)
+            {   pre2=p;
+                nex2=p->next->next;
+            }
+            count++;
+            p=p->next;
+        }
+        pre1->next=pre2->next;
+        pre2->next->next=nex1;
+        pre2->next=q;
+        q->next=nex2;
+    }
 
 return start;
 }
@@ -200,7 +225,7 @@ while(1)
         printf("\n\t\t\t 5:  delete the nth node of the linked list\n");
         printf("\n\t\t\t 6:  make it a circular linkedlist\n");
         printf("\n\t\t\t 7:  reverse the current linkedlist\n");
-        printf("\n\t\t\t 8:  swap two nodes");
+        printf("\n\t\t\t 8:  swap two nodes\n");
         printf("\n\t\t\t 9:  display the created linked list\n");
         printf("\n\t\t\t 0: to exit the operation\n");
         printf("\n\t\t\t***enter the option to be done***\n");
