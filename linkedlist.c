@@ -143,6 +143,34 @@ return start;
 }
 
 //****************************************************************************
+Node *swap(int pos1,int pos2)
+{
+    Node *pre1,*nex1,*pre2,*nex2,*p,*q;
+    p=start;
+    int count=1;
+    while(p!=NULL)
+    {
+        if((pos1-1)==count)
+        {
+            pre1=p;
+            nex1=p->next->next;
+            q=p->next;
+        }
+        else if((pos2-1)==count)
+        {   pre2=p;
+            nex2=p->next->next;
+        }
+        count++;
+        p=p->next;
+    }
+    pre1->next=pre2->next;
+    pre2->next->next=nex1;
+    pre2->next=q;
+    q->next=nex2;
+
+return start;
+}
+//****************************************************************************
 void display()
 {
     Node *q;
@@ -172,6 +200,7 @@ while(1)
         printf("\n\t\t\t 5:  delete the nth node of the linked list\n");
         printf("\n\t\t\t 6:  make it a circular linkedlist\n");
         printf("\n\t\t\t 7:  reverse the current linkedlist\n");
+        printf("\n\t\t\t 8:  swap two nodes");
         printf("\n\t\t\t 9:  display the created linked list\n");
         printf("\n\t\t\t 0: to exit the operation\n");
         printf("\n\t\t\t***enter the option to be done***\n");
@@ -219,6 +248,13 @@ while(1)
             {
                 Reverse();
                 printf("the linked list has been reversed\n");
+                break;
+            }
+            case 8:
+            {   printf("enter the position of nodes to be swapped\n");
+                int pos1,pos2;
+                scanf("%d %d",&pos1,&pos2);
+                swap( pos1, pos2);
                 break;
             }
             case 9:
