@@ -56,6 +56,7 @@ int main()
         printf("\n\t\t\t 1: to push element into the stack\n");
         printf("\n\t\t\t 2: to pop element from the stack\n");
         printf("\n\t\t\t 3: to display the elements in the stack\n");
+        printf("\n\t\t\t 0: to exit the from the application\n")
         scanf("%d",&choice);
         switch(choice)
         {
@@ -77,11 +78,13 @@ int main()
                 break;
             }
             
-            default:
+            case 0:
                 {   
-                    printf("invalid option\n");
+                    printf(" thanks for being nice to me :)\n");
                     exit(0);
                 }
+            default:
+            printf("please try again\n");
                 
         }
     }
