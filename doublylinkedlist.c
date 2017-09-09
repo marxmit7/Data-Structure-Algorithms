@@ -39,27 +39,38 @@ Node *addend()
 
     return head;
 }
+
+//********************************************************************************
+void reverse()
+{
+    Node *temp = NULL;
+    Node *current = head;
+ 
+    while (current !=  NULL)
+    {
+        temp = current->prev;
+        current->prev = current->next;
+        current->next = temp;
+        current = current->prev;
+    }
+ 
+    if(temp != NULL )
+        head = temp->prev;
+}
 //********************************************************************************
 void display()
 {
     Node *p;
     p=head;
-    printf("NULL-->");
+    printf("NULL<-->");
+    
     while(p!=NULL)
     {
-        printf(" %d-->",p->data);
+        printf(" %d <-->",p->data);
         
         p=p->next;
     }
-    printf(" NULL\n");
-    p=head;
-    printf("NULL ");
-    while(p!=NULL)
-    {
-        printf("<--%d ",p->data);
-        p=p->next;
-    }
-    printf("<--NULL");
+    printf("NULL\n");
 
 }
 
@@ -71,8 +82,10 @@ int main()
     {
         printf("\n ***enter the option to take the operation***\n");
         printf("\n\t\t\t 1:  add new node at the end\n");
+        printf("\n\t\t\t 8: to reverse the linked list\n");
         printf("\n\t\t\t 9:  display the created linked list\n");
         printf("\n\t\t\t 0: to exit the operation\n");
+        
         printf("\n\t\t\t***enter the option to be done***\n");
 
         scanf("%d",&choice);
@@ -81,6 +94,11 @@ int main()
             case 1:
             {
                 addend();
+                break;
+            }
+            case 8:
+            {
+                reverse();
                 break;
             }
             case 9:
