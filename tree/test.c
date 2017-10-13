@@ -84,4 +84,18 @@ void smallestelement(Node *root)
         printf("smallest element in the tree is %d \n",temp->data);
     }
 }
-void 
+void largestelement(Node *root)
+{
+    Node *temp=root;
+    if(root==NULL)
+        printf("no element exist\n");
+    else
+    {
+        while(temp->right!=NULL)
+        {
+            temp=temp->left;
+        }
+        printf("largest element in the tree is %d\n",temp->data);
+        
+    }
+}
