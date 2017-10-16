@@ -96,6 +96,17 @@ void largestelement(Node *root)
             temp=temp->left;
         }
         printf("largest element in the tree is %d\n",temp->data);
-        
+
     }
+}
+
+Node *search(Node *root)
+{
+    
+}
+
+Node *delete(Node *root)
+{
+    Node *tmp,*cur,*par;
+     
 }
