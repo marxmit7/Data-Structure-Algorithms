@@ -1,4 +1,4 @@
-node *topview(node*root)
+void topview(node*root)
 {
     int arr[100];
     int i=0;
@@ -22,4 +22,5 @@ node *topview(node*root)
         tmp=tmp->right;
 
     }
+
 }
