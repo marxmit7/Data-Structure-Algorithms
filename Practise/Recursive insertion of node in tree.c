@@ -25,14 +25,12 @@ Node * insert(Node *root, int val)
             root=getNode(val);
             return root;
         }
-    else
-    {
-            if(root->data>val)
-                root->left=insert(root->left,val);
-            else if(root->data<val)
-                root->right=insert(root->right,val);
+
+    if(root->data>val)
+        root->left=insert(root->left,val);
+    else if(root->data<val)
+        root->right=insert(root->right,val);
 
         return root;
-    }
 }
 
