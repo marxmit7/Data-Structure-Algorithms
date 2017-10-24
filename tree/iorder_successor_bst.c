@@ -39,7 +39,7 @@ return root;
 
 
 
-Node *findpresuc(Node *root,Node *&pre,Node *&suc,int value)
+void findpresuc(Node *root,Node *&pre,Node *&suc,int value)
 {   
     if (root==NULL)
         return ;
