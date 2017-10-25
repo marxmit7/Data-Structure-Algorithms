@@ -20,7 +20,7 @@ Node *newNode(int value)
     return tmp;
 
 }
-#define count 110
+// #define count 110
 Node *insert(Node *root,int value)
 {
     if(root==NULL)
@@ -45,7 +45,7 @@ void inorder(Node *root)
     inorder(root->right);
 }
 
-int arr[count],i=0;
+int i=0;
 void kath(Node *root,int position)
 {   
     if(root==NULL)
@@ -54,7 +54,6 @@ void kath(Node *root,int position)
     kath(root->left,position);
     if(root!=NULL)
     {
-        arr[i]=root->data;
         i++;
         if(i==position)
             printf("\nthe element present at %dth position is %d \n",i,root->data);
