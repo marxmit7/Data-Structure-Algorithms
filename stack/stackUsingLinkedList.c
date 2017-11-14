@@ -46,8 +46,8 @@ void display()
     p=start;
     while(p!=NULL)
     {
-        printf ("%d---->",p->data);
-        p=p->next;
+        printf("\t_____\n");
+        printf("\t| %d |\n",p->data);
     }
     printf("\n");
 

@@ -80,7 +80,7 @@ int  evalutePostfix(char postfix[])
         i++;
         item=postfix[i];
     }
-    printf("evalutated value of the postfix is %d",pop());
+    printf("%d\n",pop());
 }
 
 int main()
