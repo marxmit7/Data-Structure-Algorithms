@@ -11,8 +11,8 @@ node * delete(node * root,int val)
     {//o child
         if(root->left==NULL&& root->right==NULL)
         {
-            free(root);
-            root=NULL;
+            free(root);//free memory but does not clear pointer
+            root=NULL;//clears pointer but does not free memory
         }
         //for 1 child
         else if(root->left==NULL)
