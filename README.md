@@ -9,6 +9,7 @@
 ## Linked list
 * [Singly Linked list full operation](https://github.com/amit2rockon/Data-Structure-in-C/blob/master/linked%20list/linkedlist.c)
 * [Doubly Linked list full operation](https://github.com/amit2rockon/Data-Structure-in-C/blob/master/linked%20list/doublylinkedlist.c)
+* Circular linked list implementations.
 
 ## Queue
 * [Array Implementation](https://github.com/amit2rockon/Data-Structure-in-C/blob/master/queue/queueUsingArray.c)
