@@ -3,7 +3,7 @@
 
 struct node 
 {
-    int data;
+    int user_data;
     struct node *left;
     struct node *right;
 }
@@ -18,7 +18,7 @@ Node * insert(Node *root)
         printf("Enter the data into the node\n");
         int val;
         scanf("%d",&val);
-        tmp->data=val;
+        tmp->user_data=val;
         tmp->left=NULL;
         tmp->right=NULL;
 
@@ -32,7 +32,7 @@ Node * insert(Node *root)
             while(current!=NULL)
             {
                 parent=current;
-                if(val<current->data)
+                if(val<current->user_data)
                     current=current->left;
                 else
                     current=current->right;
